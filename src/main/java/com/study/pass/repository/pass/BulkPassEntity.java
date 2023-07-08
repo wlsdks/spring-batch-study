@@ -1,6 +1,5 @@
 package com.study.pass.repository.pass;
 
-import com.study.pass.repository.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -11,22 +10,20 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @ToString
-@Table(name = "pass")
+@Table(name = "bulk_pass")
 @Entity
-public class PassEntity extends BaseEntity {
+public class BulkPassEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer passSeq;
+    private Integer bulkPassSeq;
     private Integer packageSeq;
-    private String userId;
+    private String userGroupId;
 
     @Enumerated(EnumType.STRING)
-    private PassStatus status;
-    private Integer remainingCount;
+    private BulkPassStatus status;
+    private Integer count;
 
     private LocalDateTime startedAt;
     private LocalDateTime endedAt;
-    private LocalDateTime expiredAt;
-
 }
