@@ -15,14 +15,17 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-@RequiredArgsConstructor
-@EnableBatchProcessing // spring batch 사용을 위해 작성
 @SpringBootApplication
 public class PassBatchApplication {
 
 	// springBoot3.x.x 부터는 아래의 injection이 안먹힌다.
 	private final JobBuilderFactory jobBuilderFactory;
 	private final StepBuilderFactory stepBuilderFactory;
+
+	public PassBatchApplication(JobBuilderFactory jobBuilderFactory, StepBuilderFactory stepBuilderFactory) {
+		this.jobBuilderFactory = jobBuilderFactory;
+		this.stepBuilderFactory = stepBuilderFactory;
+	}
 
 	// step 선언
 	@Bean
