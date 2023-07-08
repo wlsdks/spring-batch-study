@@ -29,12 +29,20 @@ dependencies {
 	runtimeOnly 'com.mysql:mysql-connector-j'
 	annotationProcessor 'org.projectlombok:lombok'
 
+	implementation 'org.springframework.batch:spring-batch-integration' // AsyncItemProcessor, AsyncItemWriter
+	implementation 'org.springframework.boot:spring-boot-starter-webflux' // WebClient
+	annotationProcessor "org.springframework.boot:spring-boot-configuration-processor" // @ConfigurationProperties
+
 	// mapstruct
 	implementation 'org.mapstruct:mapstruct:1.5.2.Final'
 	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.2.Final'
 
 	// csv
 	implementation 'com.opencsv:opencsv:5.7.0'
+
+	// https://mvnrepository.com/artifact/com.vladmihalcea/hibernate-types-60
+	implementation 'com.vladmihalcea:hibernate-types-60:2.21.0'
+
 
 	testImplementation "org.testcontainers:testcontainers:1.17.6"
 	implementation platform('org.testcontainers:testcontainers-bom:1.17.6')
