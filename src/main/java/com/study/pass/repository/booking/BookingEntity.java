@@ -33,12 +33,10 @@ public class BookingEntity extends BaseEntity {
 
     @JoinColumn(name = "userId", insertable = false, updatable = false)
     @ManyToOne(fetch = FetchType.LAZY)
-    @ToString.Exclude
     private UserEntity userEntity;
 
     @JoinColumn(name = "passSeq", insertable = false, updatable = false)
     @ManyToOne(fetch = FetchType.LAZY)
-    @ToString.Exclude
     private PassEntity passEntity;
 
     public LocalDateTime getStatisticsAt() {
