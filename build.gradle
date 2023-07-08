@@ -29,12 +29,23 @@ dependencies {
 	runtimeOnly 'com.mysql:mysql-connector-j'
 	annotationProcessor 'org.projectlombok:lombok'
 
-	// test
+	// mapstruct
+	implementation 'org.mapstruct:mapstruct:1.5.2.Final'
+	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.2.Final'
+
+	// csv
+	implementation 'com.opencsv:opencsv:5.7.0'
+
+	testImplementation "org.testcontainers:testcontainers:1.17.6"
+	implementation platform('org.testcontainers:testcontainers-bom:1.17.6')
+	testImplementation('org.testcontainers:mysql')
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.batch:spring-batch-test'
-
 	testCompileOnly 'org.projectlombok:lombok'
 	testAnnotationProcessor 'org.projectlombok:lombok'
+	// https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+	testImplementation 'org.apache.commons:commons-lang3:3.12.0'
 
 }
 
