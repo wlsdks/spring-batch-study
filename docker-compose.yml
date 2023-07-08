@@ -1,0 +1,20 @@
+# docker-compose 파일의 버전정보 작성
+version: '3.8'
+
+services:
+  mysql:
+    container_name: mysql_local # container 이름 작성
+    image: mysql:8.0.30 # version 작성
+    volumes: # 컨테이너 삭제되어도 데이터를 유지할 수 있도록 마운트를 실시
+      - ./db/conf.d:/etc/mysql/conf.d
+      - ./db/initdb.d:/docker-entrypoint-initdb.d # 이건 컨테이너가 시작되면 이 폴더 내부의 sh,sql을 실행한다.
+    ports:
+      - "3306:3306" #port를 열어준다.
+#    restart: always
+    environment: # 환경변수 설정
+#      - MYSQL_ROOT_HOSTS=%
+      - MYSQL_DATABASE=pass_local
+      - MYSQL_USER=pass_local_user
+      - MYSQL_PASSWORD=passlocal123
+      - MYSQL_ROOT_PASSWORD=passlocal123
+      - TZ=Asia/Seoul
