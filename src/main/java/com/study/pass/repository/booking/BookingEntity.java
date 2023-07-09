@@ -39,6 +39,7 @@ public class BookingEntity extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     private PassEntity passEntity;
 
+    // endedAt 기준, yyyy-mm-hh 00:00:00
     public LocalDateTime getStatisticsAt() {
         return this.endedAt.withHour(0).withMinute(0).withSecond(0).withNano(0);
     }
